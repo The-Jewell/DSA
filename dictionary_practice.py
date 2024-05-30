@@ -64,3 +64,66 @@ print(max_key({1:100, 2:1, 3:4, 4:10}))
 # should print 1
 print(max_key({"a":100, "b":10, "c":1000}))
 # should print "c"
+
+# Write a function named word_length_dictionary that takes a list of strings named words as a parameter. The function should return a dictionary of key/value pairs where every key is a word in words and every value is the length of that word.
+def word_length_dictionary(words):
+  word_length_dict = {}
+  for word in words:
+    word_length_dict[word] = len(word)
+  return word_length_dict
+
+# Uncomment these function calls to test your  function:
+print(word_length_dictionary(["apple", "dog", "cat"]))
+# should print {"apple":5, "dog": 3, "cat":3}
+print(word_length_dictionary(["a", ""]))
+# should print {"a": 1, "": 0}
+
+
+# Write a function named frequency_dictionary that takes a list of elements named words as a parameter. The function should return a dictionary containing the frequency of each element in words.
+def frequency_dictionary(words):
+  word_frequency= {}
+  for word in words:
+    if word not in word_frequency:
+      word_frequency[word] = 1
+    else:
+      word_frequency[word] += 1 
+  return word_frequency      
+
+# Uncomment these function calls to test your  function:
+print(frequency_dictionary(["apple", "apple", "cat", 1]))
+# should print {"apple":2, "cat":1, 1:1}
+print(frequency_dictionary([0,0,0,0,0]))
+# should print {0:5}
+
+
+# Create a function named unique_values that takes a dictionary named my_dictionary as a parameter. The function should return the number of unique values in the dictionary.
+def unique_values(my_dictionary):
+  unique_vals = []
+  for value in my_dictionary.values():
+    if value not in unique_vals:
+      unique_vals.append(value)
+  return len(unique_vals)
+
+# Uncomment these function calls to test your  function:
+print(unique_values({0:3, 1:1, 4:1, 5:3}))
+# should print 2
+print(unique_values({0:3, 1:3, 4:3, 5:3}))
+# should print 1
+
+# Create a function named count_first_letter that takes a dictionary named names as a parameter. names should be a dictionary where the key is a last name and the value is a list of first names. For example, the dictionary might look like this:
+# names = {"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}
+
+def count_first_letter(names):
+  letters = {}
+  for key in names:
+    first_letter = key[0]
+    if first_letter not in letters:
+      letters[first_letter] = len(names[key])
+    else:
+      letters[first_letter] += len(names[key])
+  return letters
+# Uncomment these function calls to test your  function:
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Lannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 4, "L": 3}
+print(count_first_letter({"Stark": ["Ned", "Robb", "Sansa"], "Snow" : ["Jon"], "Sannister": ["Jaime", "Cersei", "Tywin"]}))
+# should print {"S": 7}
